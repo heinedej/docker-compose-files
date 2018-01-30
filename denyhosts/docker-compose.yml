@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  denyhosts:
+    restart: unless-stopped
+    image: "heinedej/denyhosts-docker:arm32v7"
+    environment:
+      TZ: Africa/Johannesburg
+    volumes:
+      - /var/log/auth.log:/var/log/auth.log:ro
+      - /etc/hosts.deny:/etc/hosts.deny
+      - /etc/denyhosts.conf:/etc/denyhosts.conf:ro

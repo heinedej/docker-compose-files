@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  jackett:
+    restart: unless-stopped
+    image: "lsioarmhf/jackett"
+    environment:
+      TZ: Africa/Johannesburg
+      PUID: 0
+      PGID: 0
+    volumes:
+      - /srv/dev-disk-by-id-ata-TOSHIBA_MQ01ABD100_9537SNBIS-part2/docker-config/jackett:/config
+      - /srv/dev-disk-by-id-ata-TOSHIBA_MQ01ABD100_9537SNBIS-part2/blackhole:/downloads
+    ports:
+      - 9117:9117
